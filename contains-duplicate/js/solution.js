@@ -6,14 +6,10 @@ var containsDuplicate = function (nums) {
   let numsHash = {};
 
   for (let i = 0; i < nums.length; i++) {
-    if (numsHash[nums[i]] === undefined) {
-      numsHash[nums[i]] = 1;
-    } else {
-      numsHash[nums[i]] += 1;
-    }
-
-    if (numsHash[nums[i]] > 1) {
+    if (numsHash[nums[i]]) {
       return true;
+    } else {
+      numsHash[nums[i]] = 1;
     }
   }
 
