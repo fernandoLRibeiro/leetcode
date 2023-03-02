@@ -7,11 +7,14 @@ var topKFrequent = function (nums, k) {
   let numsHash = {};
   let frequencyArray = [];
 
-  for (let num of nums) {
-    numsHash[num] = (numsHash[num] || 0) + 1;
+  for (let i = 0; i < nums.length; i++) {
+    numsHash[nums[i]] = (numsHash[nums[i]] || 0) + 1;
   }
 
-  for (let [value, count] of Object.entries(numsHash)) {
+  let countArray = Object.entries(numsHash);
+
+  for (let i = 0; i < countArray.length; i++) {
+    let [value, count] = countArray[i];
     if (frequencyArray[count]) {
       frequencyArray[count].push(value * 1);
     } else {
