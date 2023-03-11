@@ -13,11 +13,11 @@ var maxArea = function (height) {
     maximumArea = Math.max(maximumArea, currentArea);
 
     if (height[left] > height[right]) {
-      right--;
+      --right;
       continue;
     }
 
-    left++;
+    ++left;
   }
   return maximumArea;
 };
