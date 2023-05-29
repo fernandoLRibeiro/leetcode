@@ -29,7 +29,6 @@ var findMedianSortedArrays = function (nums1, nums2) {
       if (total % 2) {
         return Math.min(aRight, bRight);
       }
-
       return (Math.max(aLeft, bLeft) + Math.min(aRight, bRight)) / 2;
     } else if (aLeft > bRight) {
       right = i - 1;
@@ -39,8 +38,8 @@ var findMedianSortedArrays = function (nums1, nums2) {
   }
 };
 
-// console.log(findMedianSortedArrays([1, 3], [2]));
-// console.log(findMedianSortedArrays([1, 2, 4], [1, 3, 4]));
+console.log(findMedianSortedArrays([1, 3], [2]));
+console.log(findMedianSortedArrays([1, 2, 4], [1, 3, 4]));
 console.log(findMedianSortedArrays([1, 2], [3, 4]));
-// console.log(findMedianSortedArrays([], []));
-// console.log(findMedianSortedArrays([], [0]));
+console.log(findMedianSortedArrays([], []));
+console.log(findMedianSortedArrays([], [0]));
