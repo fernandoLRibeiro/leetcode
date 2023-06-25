@@ -12,12 +12,13 @@
  * @return {boolean}
  */
 var isSameTree = function (p, q) {
-  console.log(p, q);
   if (!p && !q) {
-    console.log("here");
     return true;
   }
-  if (!p || !q || p.val !== q.val) {
+  if (!p || !q) {
+    return false;
+  }
+  if (p.val !== q.val) {
     return false;
   }
 
