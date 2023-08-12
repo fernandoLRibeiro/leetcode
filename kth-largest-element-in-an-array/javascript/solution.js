@@ -4,15 +4,30 @@
  * @return {number}
  */
 var findKthLargest = function (nums, k) {
-  const heap = new MaxPriorityQueue();
-  for (let i = 0; i < nums.length; ++i) {
-    heap.enqueue(nums[i]);
-  }
+  k = nums.length - k;
 
-  let curr;
-  while (k > 0) {
-    curr = heap.dequeue().element;
-    k--;
-  }
-  return curr;
+  const quickSelect = (l, r) => {
+    let pivot = nums[r];
+    let p = l;
+    for (let i = l; i < r; ++i) {
+      if (nums[i] <= pivot) {
+        let tmp = nums[i];
+        nums[i] = nums[p];
+        nums[p] = tmp;
+        p++;
+      }
+    }
+    let tmp = nums[p];
+    nums[p] = pivot;
+    nums[r] = tmp;
+
+    if (p > k) {
+      return quickSelect(l, p - 1);
+    } else if (p < k) {
+      return quickSelect(p + 1, r);
+    } else {
+      return nums[p];
+    }
+  };
+  return quickSelect(0, nums.length - 1);
 };
